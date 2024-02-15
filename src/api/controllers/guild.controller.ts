@@ -72,7 +72,7 @@ export class GuildController {
   async updateFeature(
     @Req() req: AuthRequest,
     @Param('guild') guild: string,
-    @Body() body: Partial<WelcomeMessage>,
+    @Body() body: Partial<guild>,
   ) {
     await this.bot.checkPermissions(req.session, guild);
 
