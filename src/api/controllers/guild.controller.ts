@@ -35,7 +35,7 @@ export class GuildController {
 
   @Get('/features/welcome-message')
   async getFeature(@Param('guild') guild: string) {
-    const data = await this.prisma.welcomeMessage.findUnique({
+    const data = await this.prisma.guild.findUnique({
       where: {
         id: guild,
       },
@@ -52,7 +52,7 @@ export class GuildController {
   async enableFeature(@Req() req: AuthRequest, @Param('guild') guild: string) {
     await this.bot.checkPermissions(req.session, guild);
 
-    await this.prisma.welcomeMessage.upsert({
+    await this.prisma.guild.upsert({
       create: {
         id: guild,
       },
@@ -73,7 +73,7 @@ export class GuildController {
   ) {
     await this.bot.checkPermissions(req.session, guild);
 
-    const updated = await this.prisma.welcomeMessage.update({
+    const updated = await this.prisma.guild.update({
       where: {
         id: guild,
       },
@@ -90,7 +90,7 @@ export class GuildController {
   async disableFeature(@Param('guild') guild: string, @Req() req: AuthRequest) {
     await this.bot.checkPermissions(req.session, guild);
 
-    await this.prisma.welcomeMessage.delete({
+    await this.prisma.guild.delete({
       where: {
         id: guild,
       },
