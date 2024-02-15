@@ -14,7 +14,7 @@ type Feature = 'welcome-message';
 @Injectable()
 export class BotService extends Client implements OnModuleInit {
   constructor(private readonly prisma: PrismaService) {
-    super({ intents: [GatewayIntentBits.Guilds], shardCount: "auto" });
+    super({ intents: [GatewayIntentBits.Guilds], shards: 'auto' });
   }
 
   onModuleInit() {
