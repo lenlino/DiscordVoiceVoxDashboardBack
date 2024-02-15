@@ -75,6 +75,7 @@ export class GuildController {
     @Body() body: Partial<guild>,
   ) {
     await this.bot.checkPermissions(req.session, guild);
+    console.log(body);
 
     const updated = await this.prisma.guild.update({
       where: {
