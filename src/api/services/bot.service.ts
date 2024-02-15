@@ -23,7 +23,7 @@ export class BotService extends Client implements OnModuleInit {
 
   async getEnabledFeatures(guild: string): Promise<Feature[]> {
     const features: Feature[] = [];
-    const welcomeMessage = await this.prisma.welcomeMessage.count({
+    const welcomeMessage = await this.prisma.guild.count({
       where: {
         id: guild,
       },

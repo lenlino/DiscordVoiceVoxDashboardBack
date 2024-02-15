@@ -9,7 +9,7 @@ import {
   Req,
 } from '@nestjs/common';
 import { PrismaService } from '../services/prisma.service';
-import { WelcomeMessage } from '@prisma/client';
+import { guild } from '@prisma/client';
 import { AuthRequest } from '../middlewares/auth.middleware';
 import { BotService } from '../services/bot.service';
 
@@ -43,8 +43,11 @@ export class GuildController {
     if (data == null) return null;
 
     return {
-      message: data.message,
-      channel: data.channel,
+      is_reademoji: data.is_reademoji,
+      lang: data.lang,
+      is_readname: data.is_readname,
+      is_readurl: data.is_readurl,
+      is_readjoin: data.is_readjoin,
     };
   }
 
