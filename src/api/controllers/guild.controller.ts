@@ -83,6 +83,12 @@ export class GuildController {
       data: {
         ...body,
         id: undefined,
+        is_premium: undefined,
+        is_joinoutread: undefined,
+        auto_join: undefined,
+        premium_user: undefined,
+        is_readsan: undefined,
+        is_joinnotice: undefined,
       },
     });
 
